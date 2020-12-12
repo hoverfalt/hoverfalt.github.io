@@ -1,5 +1,28 @@
 img {
-  width: 1000px;
-  display: block;
-  margin: 0 auto;
+    width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
+
+#fixed-width-CC {
+    float:left;
+    width: 80px;
+    height:15px;
+}  
+
+.containerBox {
+    width:100%;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.containerIcon {
+    float:left;
+    width:90px;
+    margin: 0 auto;
+}
+
+.containerText {
+    float:left;
+    margin: 0 auto;
 }
