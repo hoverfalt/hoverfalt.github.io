@@ -1,4 +1,10 @@
-img {
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img {
     width: 1000px;
     display: block;
     margin: 0 auto;
@@ -8,6 +14,11 @@ img {
     float:left;
     width: 80px;
     height:15px;
+}  
+
+.item_image {
+    width: 28px;
+    height:28px;
 }  
 
 .containerBox {
