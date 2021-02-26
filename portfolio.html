@@ -13,12 +13,22 @@
 
 <title>Portfolio</title>
 
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -40,12 +50,16 @@
   gtag('config', 'G-HYJZNEMFV0');
 </script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -58,32 +72,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -94,10 +83,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -114,40 +99,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -175,7 +133,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -187,7 +145,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -198,10 +156,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -213,7 +184,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -339,7 +309,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -351,8 +321,8 @@ $(document).ready(function () {
 <p>The portfolio level shows category performance and comparison within the portfolio. Click any image for full size.</p>
 <div id="category-listing" class="section level3">
 <h3>Category listing</h3>
-<div id="htmlwidget-e7d5e24e82e1aa76676d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e7d5e24e82e1aa76676d">{"x":{"filter":"none","data":[[null,"<img class='item_image' src='https://www.dropbox.com/s/75oc8vuqsd9qiwk/Category_image-Jackets_and_hoodies.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zu32wq02pey2ksj/Category_image-Blazers_and_vests.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/6909t30nkye97fm/Category_image-Knits.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/hju9xpbg8m7ifjs/Category_image-Shirts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/t5hu2ii79mu0hsb/Category_image-T-shirts_and_tanks.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/h3klky2sfiinn6u/Category_image-Pants.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vr1j34if1h6a0r9/Category_image-Shorts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tyap70zj8eype2i/Category_image-Belts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7ww3rljv11c6kax/Category_image-Socks.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7c89swwiv518zt0/Category_image-Shoes.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7r07jrskz031b36/Category_image-Underwear_shirts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/42a6f9a3uevcts5/Category_image-Underwear_boxers.png?raw=1'><\/img>"],["Total","Jackets and hoodies","Blazers and vests","Knits","Shirts","T-shirts and tanks","Pants","Shorts","Belts","Socks","Shoes","Underwear shirts","Underwear boxers"],[200,10,10,1,18,10,7,7,9,39,11,55,23],[10300.05,1475.85,1581.6,100,1734.96,559,1043,534.99,549.9,244.34,1417.44,826.17,232.8],[null,1.57290825158684,13.4033898305085,8.88888888888889,4.08865892291447,1.85885964912281,2.01775200713649,1.26774881516588,0.696639344262295,0.412595419847328,1.29841235632184,0.997904940587867,0.738992125984252],[null,0.7265625,0.0442708333333333,0.00954861111111111,0.493923611111111,0.28125,0.646701388888889,0.229166666666667,0.680555555555556,0.704861111111111,0.907986111111111,0.883680555555556,0.920138888888889],[3454.52038020111,417.127895313402,216.583421610169,30.9799382716049,737.112090629767,190.823560855263,476.282304288705,106.041906101896,173.047148224044,106.150200116624,430.313240902878,321.867655185967,248.191018700787],[0.335388700074379,0.282635698284651,0.136939442090395,0.309799382716049,0.424858262224931,0.34136594070709,0.45664650459128,0.198212875197472,0.314688394660927,0.434436441502105,0.303584801404559,0.389590102746368,1.06611262328517]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Category<\/th>\n      <th>Active items<\/th>\n      <th>Inventory value<\/th>\n      <th>Cost per wear<\/th>\n      <th>Days used<\/th>\n      <th>Yearly cost<\/th>\n      <th>Inventory turnover<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Category","Active items","Inventory value","Cost per wear","Days used","Yearly cost","Inventory turnover"],"columnDefs":[{"targets":7,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatPercentage(data, 0, 3, \",\", \".\"); }"},{"targets":[3,6],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 0, 3, \"\", \".\", false); }"},{"targets":4,"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"90px","targets":[2,3,4,5,6,7]},{"className":"dt-center","targets":0},{"className":"dt-body-right","targets":[0,2,3,4,5,6,7]}],"dom":"t","pageLength":200,"order":[],"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (55.000000 - value)/55.000000 * 100 + '%, #E0E0E0 ' + (55.000000 - value)/55.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1734.960000 - value)/1734.960000 * 100 + '%, #CCE5FF ' + (1734.960000 - value)/1734.960000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (13.403390 - value)/13.403390 * 100 + '%, #FFCCCC ' + (13.403390 - value)/13.403390 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.000000 - value)/1.000000 * 100 + '%, #CCFFCC ' + (1.000000 - value)/1.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (737.112091 - value)/737.112091 * 100 + '%, #FFCCCC ' + (737.112091 - value)/737.112091 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.066113 - value)/1.066113 * 100 + '%, #E0E0E0 ' + (1.066113 - value)/1.066113 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[1]; $(row).css({'font-weight':value == \"Total\" ? \"bold\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-3ca7ec3457f5854ec398" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3ca7ec3457f5854ec398">{"x":{"filter":"none","data":[[null,"<img class='item_image' src='https://www.dropbox.com/s/75oc8vuqsd9qiwk/Category_image-Jackets_and_hoodies.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zu32wq02pey2ksj/Category_image-Blazers_and_vests.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/6909t30nkye97fm/Category_image-Knits.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/hju9xpbg8m7ifjs/Category_image-Shirts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/t5hu2ii79mu0hsb/Category_image-T-shirts_and_tanks.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/h3klky2sfiinn6u/Category_image-Pants.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vr1j34if1h6a0r9/Category_image-Shorts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tyap70zj8eype2i/Category_image-Belts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7ww3rljv11c6kax/Category_image-Socks.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7c89swwiv518zt0/Category_image-Shoes.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7r07jrskz031b36/Category_image-Underwear_shirts.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/42a6f9a3uevcts5/Category_image-Underwear_boxers.png?raw=1'><\/img>"],["Total","Jackets and hoodies","Blazers and vests","Knits","Shirts","T-shirts and tanks","Pants","Shorts","Belts","Socks","Shoes","Underwear shirts","Underwear boxers"],[200,10,10,1,18,10,7,7,9,39,11,55,23],[10300.05,1475.85,1581.6,100,1734.96,559,1043,534.99,549.9,244.34,1417.44,826.17,232.8],[null,1.57290825158684,13.4033898305085,8.88888888888889,4.08865892291447,1.85885964912281,2.01775200713649,1.26774881516588,0.696639344262295,0.412595419847328,1.29841235632184,0.997904940587867,0.738992125984252],[null,0.7265625,0.0442708333333333,0.00954861111111111,0.493923611111111,0.28125,0.646701388888889,0.229166666666667,0.680555555555556,0.704861111111111,0.907986111111111,0.883680555555556,0.920138888888889],[3454.52038020111,417.127895313402,216.583421610169,30.9799382716049,737.112090629767,190.823560855263,476.282304288705,106.041906101896,173.047148224044,106.150200116624,430.313240902878,321.867655185967,248.191018700787],[0.335388700074379,0.282635698284651,0.136939442090395,0.309799382716049,0.424858262224931,0.34136594070709,0.45664650459128,0.198212875197472,0.314688394660927,0.434436441502105,0.303584801404559,0.389590102746368,1.06611262328517]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Category<\/th>\n      <th>Active items<\/th>\n      <th>Inventory value<\/th>\n      <th>Cost per wear<\/th>\n      <th>Days used<\/th>\n      <th>Yearly cost<\/th>\n      <th>Inventory turnover<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Category","Active items","Inventory value","Cost per wear","Days used","Yearly cost","Inventory turnover"],"columnDefs":[{"targets":7,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatPercentage(data, 0, 3, \",\", \".\"); }"},{"targets":[3,6],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 0, 3, \"\", \".\", false); }"},{"targets":4,"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"90px","targets":[2,3,4,5,6,7]},{"className":"dt-center","targets":0},{"className":"dt-body-right","targets":[0,2,3,4,5,6,7]}],"dom":"t","pageLength":200,"order":[],"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (55.000000 - value)/55.000000 * 100 + '%, #E0E0E0 ' + (55.000000 - value)/55.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1734.960000 - value)/1734.960000 * 100 + '%, #CCE5FF ' + (1734.960000 - value)/1734.960000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (13.403390 - value)/13.403390 * 100 + '%, #FFCCCC ' + (13.403390 - value)/13.403390 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.000000 - value)/1.000000 * 100 + '%, #CCFFCC ' + (1.000000 - value)/1.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (737.112091 - value)/737.112091 * 100 + '%, #FFCCCC ' + (737.112091 - value)/737.112091 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.066113 - value)/1.066113 * 100 + '%, #E0E0E0 ' + (1.066113 - value)/1.066113 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[1]; $(row).css({'font-weight':value == \"Total\" ? \"bold\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 <div id="active-items-by-category" class="section level3">
 <h3>Active items by category</h3>
@@ -376,7 +346,7 @@ $(document).ready(function () {
 </div>
 <div id="daily-cost" class="section level3">
 <h3>Daily cost</h3>
-<p>Daily cost of all items used on a particular day. “All divested” means the daily cost is final and no longer decreases with future use. <a href="https://www.dropbox.com/s/ge5c2jzh8o6759h/Portfolio-Daily_cost.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/ge5c2jzh8o6759h/Portfolio-Daily_cost.png?raw=1" /></a></p>
+<p>Daily cost of all items used on a particular day. “All divested” means the daily cost is final and no longer decreases with future use. <a href="https://threddit-297417.web.app/Portfolio-Daily_cost.png" target="_blank"><img src="https://threddit-297417.web.app/Portfolio-Daily_cost.png" /></a></p>
 </div>
 <div id="daily-cost---animated-by-date" class="section level3">
 <h3>Daily cost - Animated by date</h3>
@@ -399,7 +369,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -417,7 +387,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
