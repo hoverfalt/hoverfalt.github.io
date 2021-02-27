@@ -13,12 +13,22 @@
 
 <title>Underwear shirts</title>
 
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -40,12 +50,16 @@
   gtag('config', 'G-HYJZNEMFV0');
 </script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -58,32 +72,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -94,10 +83,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -114,40 +99,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -175,7 +133,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -187,7 +145,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -198,10 +156,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -213,7 +184,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -339,7 +309,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -351,32 +321,32 @@ $(document).ready(function () {
 <p>The category level shows item performance and comparison within the category. Click any plot image for full size.</p>
 <div id="item-listing" class="section level3">
 <h3>Item listing</h3>
-<div id="htmlwidget-9a62c7e7524da9c481b1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9a62c7e7524da9c481b1">{"x":{"filter":"none","data":[["<img class='item_image' src='https://www.dropbox.com/s/pe7idvvafgco5gs/Underwear_shirts-011.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/o3ngrcwac8sklhs/Underwear_shirts-012.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/cnbu8capb6ebvh1/Underwear_shirts-015.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wi99wica0z9gn5x/Underwear_shirts-016.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/dd6hauxcotp8mom/Underwear_shirts-017.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ddfsjgrtwzmgb9t/Underwear_shirts-020.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/igsb9yjxa0vovs6/Underwear_shirts-030.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/bp513auk8ukanlk/Underwear_shirts-031.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pie8zgge5p58jfe/Underwear_shirts-033.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/48s6k6gdjqiezu4/Underwear_shirts-041.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pni1k95adden1os/Underwear_shirts-042.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ep693vppls609ft/Underwear_shirts-043.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/cj5kra0cav3edc6/Underwear_shirts-045.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/qkkqhn2f078rn97/Underwear_shirts-046.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vk76sx023rgjj3z/Underwear_shirts-051.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ut9s26juu95bssf/Underwear_shirts-052.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/kwhuu5n9vkkxmnx/Underwear_shirts-053.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/6ojtyl48qcs8oxi/Underwear_shirts-059.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3sxl2l94w7w9un3/Underwear_shirts-060.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/v4qwbnwievszi2x/Underwear_shirts-061.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wu3gkt3s9paqz31/Underwear_shirts-062.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/i0wklyqggmtnya9/Underwear_shirts-063.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/0vkrx3azhh9uqu4/Underwear_shirts-064.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/dco1jfrifl0czp9/Underwear_shirts-065.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/c7o502jhevsyg9c/Underwear_shirts-066.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fvf55vn9b645akh/Underwear_shirts-067.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/nf5mhdsys4zsx43/Underwear_shirts-068.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pe9z4ly914e5tz2/Underwear_shirts-069.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/4mq8hymtvfkt8zp/Underwear_shirts-070.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/aobeqmohy9az60h/Underwear_shirts-071.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/klp70v1tgxutkq2/Underwear_shirts-072.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/f58ikc970l8qgmv/Underwear_shirts-073.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vaz586cmmzuy5su/Underwear_shirts-074.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/n1mofjuz5ds8pb2/Underwear_shirts-075.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/eb12xe7o0g8qv51/Underwear_shirts-076.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7a8n8y01ia7wt5j/Underwear_shirts-077.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/657fhn0nrapvq3e/Underwear_shirts-078.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7erv55lmk35tsck/Underwear_shirts-079.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mpl0ug0tsxoe3bk/Underwear_shirts-080.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/lnvaeu85ryydeeu/Underwear_shirts-081.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zsfa318v45kervx/Underwear_shirts-082.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/czpcuaz31t6pw24/Underwear_shirts-083.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/h364m4dwjdsxa4o/Underwear_shirts-084.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/im8zarpugpxzdv2/Underwear_shirts-085.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/im8zarpugpxzdv2/Underwear_shirts-085.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/b00vjz26u9roze2/Underwear_shirts-087.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7ebykbtb0mr6w7x/Underwear_shirts-088.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/udrh4qwvi3hoh3i/Underwear_shirts-089.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/d8yydskytrkvfih/Underwear_shirts-090.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/0370135bi1o9wls/Underwear_shirts-091.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/gbvi6tj0lr371e1/Underwear_shirts-092.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7vr71ldnu25nxkt/Underwear_shirts-093.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ne9vgeoa6qpsqnx/Underwear_shirts-094.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3al9hmlfe00i9ie/Underwear_shirts-095.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zsadjmmd20st70h/Underwear_shirts-096.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wclzr8xr53tk8kg/Underwear_shirts-097.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/c3ldd2m1f7clcxy/Underwear_shirts-001.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ovomqt5f0har6jz/Underwear_shirts-002.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/rc3nk6ge7hhqi3o/Underwear_shirts-003.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/kxenj1nbm72tc38/Underwear_shirts-004.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/jtbe6x6chtle3fs/Underwear_shirts-005.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/v5008n0aad5f5jc/Underwear_shirts-006.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/z33bg2dvty1mztk/Underwear_shirts-007.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/90jfa731o6w3gwl/Underwear_shirts-008.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ygrbdxr7hga7ek0/Underwear_shirts-009.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pa47gmrw8iar8pp/Underwear_shirts-013.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3bktuuz165ved9u/Underwear_shirts-014.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/1sdtzaxngygvu1z/Underwear_shirts-018.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3tjh3zsvbx0b52c/Underwear_shirts-019.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/8f7srvp9p325uxi/Underwear_shirts-021.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/laly2s11hrexmr8/Underwear_shirts-022.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/uxr1f56v9j4t92i/Underwear_shirts-023.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/re1u9bsms5iyqd8/Underwear_shirts-024.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wfsn3igm5l9o2rm/Underwear_shirts-025.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zttpz89cv6h3o5r/Underwear_shirts-026.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/9scxp4b7mgzpii1/Underwear_shirts-027.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ibibn5nx9y864ll/Underwear_shirts-028.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/forenqky3zs9e5c/Underwear_shirts-029.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/2xh6vso7gjdm7k2/Underwear_shirts-032.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/aff0d49vk0q9y96/Underwear_shirts-034.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/rc4tk2cc75lfpwz/Underwear_shirts-035.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/uk324phg0p1ij7u/Underwear_shirts-036.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/0d9jzmvkcbuq63o/Underwear_shirts-037.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/b2rotxu1xej7dbk/Underwear_shirts-038.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/f8idq49bjgahrri/Underwear_shirts-039.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tgum0fp27rwj30e/Underwear_shirts-040.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ptzijv6m5fdnw31/Underwear_shirts-044.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zjfmz01jj7sf8da/Underwear_shirts-047.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ryuppdicevo214o/Underwear_shirts-048.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/2yxce9ek3w7ojgj/Underwear_shirts-049.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tfceie1gsb0ws2p/Underwear_shirts-050.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/lcfauivu4hx67rc/Underwear_shirts-054.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fnrphb6929gzx0z/Underwear_shirts-055.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/a8kbfv0sym5zfcz/Underwear_shirts-056.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/k3n7nalbm707ppn/Underwear_shirts-057.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/lvz69epr2gy3qij/Underwear_shirts-058.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ng5nmiwgwn78h9f/Underwear_shirts-086.png?raw=1'><\/img>"],["Jockey white 01","Jockey white 02","Jockey white 05 (Hanko)","Jockey white 06 (Hanko)","Jockey white 07","Jockey white 10","Yourturn white tank (Hanko)","Tiger of Sweden black tank","Zalando Essentials black 02 (Hanko)","Zalando Essentials black 10 (Hanko)","Zalando Essentials black 11 (Hanko)","Zalando Essentials black 12 (Hanko)","Zalando Essentials black 14 (Hanko)","Zalando Essentials black 15 (Hanko)","Jockey white 11","Jockey white 12","Zalando Essentials black 16","Zalando Essentials white 01","Zalando Essentials white 02","Zalando Essentials white 03","Jockey white 13","Jockey white 14","Jockey white 15","Jockey white 16","Jockey white 17","Jockey white 18","Jockey white 19","Jockey white 20","Jockey white 21","Jockey white 22","Jockey white 23","Jockey white 24","Jockey white 25","Jockey white 26","Zalando Essentials black 22","Zalando Essentials black 23","Zalando Essentials black 24","Zalando Essentials black 25","Zalando Essentials black 26 (Hanko)","Zalando Essentials black 27","Calvin Klein black S 02","Calvin Klein black S 03","Calvin Klein black S 04","Calvin Klein black S 05","Calvin Klein black S 05","Calvin Klein black S 07","Calvin Klein black S 08","Calvin Klein black S 09","Hugo Boss Urban Coolmax M 01","Hugo Boss Urban Coolmax M 02","Hugo Boss M 07","Hugo Boss M 08","Hugo Boss M 09","Hugo Boss M 10","Hugo Boss M 11","Hugo Boss M 12","Olymp Level Five white 01","Olymp Level Five white 02","Olymp Level Five white 03","Olymp Level Five white 04","Olymp Level Five white 05","Olymp Level Five white 06","Olymp Level Five white 07","Olymp Level Five white 08","Olymp Level Five white 09","Jockey white 03","Jockey white 04","Jockey white 08","Jockey white 09","Tiger of Sweden black S 01","Tiger of Sweden black S 02","Tiger of Sweden black S 03","Calvin Klein black S","Calvin Klein black M 01","Calvin Klein black M 02","Calvin Klein black M 03","Boss black M 01","Boss black M 02","Zalando Essentials black 01","Zalando Essentials black 03","Zalando Essentials black 04","Zalando Essentials black 05","Zalando Essentials black 06","Zalando Essentials black 07","Zalando Essentials black 08","Zalando Essentials black 09","Zalando Essentials black 13","Boss black M 03","Boss black M 04","Boss black M 05","Boss black M 06","Zalando Essentials black 17","Zalando Essentials black 18","Zalando Essentials black 19","Zalando Essentials black 20","Zalando Essentials black labelless","Calvin Klein black S 06"],[19.98,19.98,19.98,19.98,19.98,19.98,12.95,40,4.79,4.79,4.79,4.79,5.98,5.98,19.98,19.98,5.98,5.98,5.98,5.98,19.98,19.98,19.98,19.98,19.98,19.98,19.98,19.98,19.98,19.98,15.98,15.98,15.98,15.98,3.58,3.58,3.58,3.58,3.58,3.58,10.48,10.48,10.48,10.48,10.48,10.48,10.48,10.48,39.95,39.95,19.98,19.98,19.98,19.98,19.98,19.98,25,25,25,25,25,25,25,25,25,19.98,19.98,19.98,19.98,40,40,40,20,40,40,40,19.98,19.98,4.79,4.79,4.79,4.79,4.79,4.79,4.79,4.79,5.98,19.98,19.98,19.98,19.98,5.98,5.98,5.98,5.98,5.98,10.48],[0,26,4,0,18,21,1,39,12,7,9,9,12,7,13,19,34,2,2,5,6,3,6,6,14,7,6,13,12,4,1,1,1,1,33,34,36,30,12,27,30,21,17,8,8,11,28,12,2,0,0,1,3,0,0,0,16,22,23,25,25,20,23,22,16,20,16,17,15,30,26,24,11,21,25,18,33,31,24,22,33,20,25,26,23,19,20,30,42,35,34,18,26,23,35,21,18],[19.98,0.77,5,19.98,1.11,0.95,12.95,1.03,0.4,0.68,0.53,0.53,0.5,0.85,1.54,1.05,0.18,2.99,2.99,1.2,3.33,6.66,3.33,3.33,1.43,2.85,3.33,1.54,1.66,5,15.98,15.98,15.98,15.98,0.11,0.11,0.1,0.12,0.3,0.13,0.35,0.5,0.62,1.31,1.31,0.95,0.37,0.87,19.98,39.95,19.98,19.98,6.66,19.98,19.98,19.98,1.56,1.14,1.09,1,1,1.25,1.09,1.14,1.56,1,1.25,1.18,1.33,1.33,1.54,1.67,1.82,1.9,1.6,2.22,0.61,0.64,0.2,0.22,0.15,0.24,0.19,0.18,0.21,0.25,0.3,0.67,0.48,0.57,0.59,0.33,0.23,0.26,0.17,0.28,0.58],[0,0.8,0.1,0,0.6,0.7,0,0.6,0.4,0.2,0.3,0.3,0.4,0.2,0.5,0.7,1.7,0.1,0.1,0.3,0.3,0.2,0.3,0.3,0.8,0.4,0.3,0.7,0.7,0.2,0.1,0.1,0.1,0.1,2.4,2.5,2.7,2.2,0.9,2,2.4,1.7,1.4,0.6,0.6,0.9,2.2,1,0.6,0,0,0.3,1,0,0,0,0.4,0.8,0.8,0.8,0.5,0.5,0.7,0.7,0.4,1.5,1.2,1.7,1.4,0.8,0.7,0.6,0.2,0.5,0.7,0.5,1.3,1.4,2,1.2,1.5,2.1,1.4,1.3,1,1,1.9,1.9,1.8,1.5,1.7,1.8,1.9,2.2,2.2,2,1.7],["Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (40.000000 - value)/40.000000 * 100 + '%, #E0E0E0 ' + (40.000000 - value)/40.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (42.000000 - value)/42.000000 * 100 + '%, #CCE5FF ' + (42.000000 - value)/42.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (2.220000 - value)/2.220000 * 100 + '%, #FFCCCC ' + (2.220000 - value)/2.220000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (2.700000 - value)/2.700000 * 100 + '%, #CCFFCC ' + (2.700000 - value)/2.700000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-0cec8ffa5e01c731a2e3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0cec8ffa5e01c731a2e3">{"x":{"filter":"none","data":[["<img class='item_image' src='https://www.dropbox.com/s/bp513auk8ukanlk/Underwear_shirts-031.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/657fhn0nrapvq3e/Underwear_shirts-078.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/kwhuu5n9vkkxmnx/Underwear_shirts-053.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7a8n8y01ia7wt5j/Underwear_shirts-077.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/eb12xe7o0g8qv51/Underwear_shirts-076.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7erv55lmk35tsck/Underwear_shirts-079.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zsfa318v45kervx/Underwear_shirts-082.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7ebykbtb0mr6w7x/Underwear_shirts-088.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/lnvaeu85ryydeeu/Underwear_shirts-081.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/o3ngrcwac8sklhs/Underwear_shirts-012.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ddfsjgrtwzmgb9t/Underwear_shirts-020.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/czpcuaz31t6pw24/Underwear_shirts-083.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ut9s26juu95bssf/Underwear_shirts-052.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/dd6hauxcotp8mom/Underwear_shirts-017.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/h364m4dwjdsxa4o/Underwear_shirts-084.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/c7o502jhevsyg9c/Underwear_shirts-066.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vk76sx023rgjj3z/Underwear_shirts-051.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pe9z4ly914e5tz2/Underwear_shirts-069.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mpl0ug0tsxoe3bk/Underwear_shirts-080.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pie8zgge5p58jfe/Underwear_shirts-033.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/cj5kra0cav3edc6/Underwear_shirts-045.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/4mq8hymtvfkt8zp/Underwear_shirts-070.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/udrh4qwvi3hoh3i/Underwear_shirts-089.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/b00vjz26u9roze2/Underwear_shirts-087.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pni1k95adden1os/Underwear_shirts-042.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ep693vppls609ft/Underwear_shirts-043.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/im8zarpugpxzdv2/Underwear_shirts-085.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/48s6k6gdjqiezu4/Underwear_shirts-041.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/qkkqhn2f078rn97/Underwear_shirts-046.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fvf55vn9b645akh/Underwear_shirts-067.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wu3gkt3s9paqz31/Underwear_shirts-062.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/0vkrx3azhh9uqu4/Underwear_shirts-064.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/dco1jfrifl0czp9/Underwear_shirts-065.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/nf5mhdsys4zsx43/Underwear_shirts-068.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/v4qwbnwievszi2x/Underwear_shirts-061.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/cnbu8capb6ebvh1/Underwear_shirts-015.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/aobeqmohy9az60h/Underwear_shirts-071.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/i0wklyqggmtnya9/Underwear_shirts-063.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ne9vgeoa6qpsqnx/Underwear_shirts-094.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/6ojtyl48qcs8oxi/Underwear_shirts-059.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3sxl2l94w7w9un3/Underwear_shirts-060.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/d8yydskytrkvfih/Underwear_shirts-090.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/igsb9yjxa0vovs6/Underwear_shirts-030.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/klp70v1tgxutkq2/Underwear_shirts-072.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/f58ikc970l8qgmv/Underwear_shirts-073.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vaz586cmmzuy5su/Underwear_shirts-074.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/n1mofjuz5ds8pb2/Underwear_shirts-075.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7vr71ldnu25nxkt/Underwear_shirts-093.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pe7idvvafgco5gs/Underwear_shirts-011.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wi99wica0z9gn5x/Underwear_shirts-016.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/0370135bi1o9wls/Underwear_shirts-091.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/gbvi6tj0lr371e1/Underwear_shirts-092.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3al9hmlfe00i9ie/Underwear_shirts-095.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zsadjmmd20st70h/Underwear_shirts-096.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wclzr8xr53tk8kg/Underwear_shirts-097.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ryuppdicevo214o/Underwear_shirts-048.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/2yxce9ek3w7ojgj/Underwear_shirts-049.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/k3n7nalbm707ppn/Underwear_shirts-057.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tfceie1gsb0ws2p/Underwear_shirts-050.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ibibn5nx9y864ll/Underwear_shirts-028.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/rc4tk2cc75lfpwz/Underwear_shirts-035.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/forenqky3zs9e5c/Underwear_shirts-029.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/8f7srvp9p325uxi/Underwear_shirts-021.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zjfmz01jj7sf8da/Underwear_shirts-047.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/laly2s11hrexmr8/Underwear_shirts-022.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/b2rotxu1xej7dbk/Underwear_shirts-038.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fnrphb6929gzx0z/Underwear_shirts-055.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/kxenj1nbm72tc38/Underwear_shirts-004.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/jtbe6x6chtle3fs/Underwear_shirts-005.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zttpz89cv6h3o5r/Underwear_shirts-026.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/0d9jzmvkcbuq63o/Underwear_shirts-037.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/uxr1f56v9j4t92i/Underwear_shirts-023.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/2xh6vso7gjdm7k2/Underwear_shirts-032.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/rc3nk6ge7hhqi3o/Underwear_shirts-003.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/z33bg2dvty1mztk/Underwear_shirts-007.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/f8idq49bjgahrri/Underwear_shirts-039.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/a8kbfv0sym5zfcz/Underwear_shirts-056.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ovomqt5f0har6jz/Underwear_shirts-002.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/90jfa731o6w3gwl/Underwear_shirts-008.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/aff0d49vk0q9y96/Underwear_shirts-034.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wfsn3igm5l9o2rm/Underwear_shirts-025.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/lvz69epr2gy3qij/Underwear_shirts-058.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/v5008n0aad5f5jc/Underwear_shirts-006.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/pa47gmrw8iar8pp/Underwear_shirts-013.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/uk324phg0p1ij7u/Underwear_shirts-036.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ptzijv6m5fdnw31/Underwear_shirts-044.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tgum0fp27rwj30e/Underwear_shirts-040.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/9scxp4b7mgzpii1/Underwear_shirts-027.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/lcfauivu4hx67rc/Underwear_shirts-054.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ng5nmiwgwn78h9f/Underwear_shirts-086.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/1sdtzaxngygvu1z/Underwear_shirts-018.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/c3ldd2m1f7clcxy/Underwear_shirts-001.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/ygrbdxr7hga7ek0/Underwear_shirts-009.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3bktuuz165ved9u/Underwear_shirts-014.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3tjh3zsvbx0b52c/Underwear_shirts-019.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/re1u9bsms5iyqd8/Underwear_shirts-024.png?raw=1'><\/img>"],["Tiger of Sweden black tank","Zalando Essentials black 24","Zalando Essentials black 16","Zalando Essentials black 23","Zalando Essentials black 22","Zalando Essentials black 25","Calvin Klein black S 02","Calvin Klein black S 08","Zalando Essentials black 27","Jockey white 02","Jockey white 10","Calvin Klein black S 03","Jockey white 12","Jockey white 07","Calvin Klein black S 04","Jockey white 17","Jockey white 11","Jockey white 20","Zalando Essentials black 26 (Hanko)","Zalando Essentials black 02 (Hanko)","Zalando Essentials black 14 (Hanko)","Jockey white 21","Calvin Klein black S 09","Calvin Klein black S 07","Zalando Essentials black 11 (Hanko)","Zalando Essentials black 12 (Hanko)","Calvin Klein black S 05","Zalando Essentials black 10 (Hanko)","Zalando Essentials black 15 (Hanko)","Jockey white 18","Jockey white 13","Jockey white 15","Jockey white 16","Jockey white 19","Zalando Essentials white 03","Jockey white 05 (Hanko)","Jockey white 22","Jockey white 14","Hugo Boss M 09","Zalando Essentials white 01","Zalando Essentials white 02","Hugo Boss Urban Coolmax M 01","Yourturn white tank (Hanko)","Jockey white 23","Jockey white 24","Jockey white 25","Jockey white 26","Hugo Boss M 08","Jockey white 01","Jockey white 06 (Hanko)","Hugo Boss Urban Coolmax M 02","Hugo Boss M 07","Hugo Boss M 10","Hugo Boss M 11","Hugo Boss M 12","Boss black M 04","Boss black M 05","Zalando Essentials black 20","Boss black M 06","Boss black M 01","Zalando Essentials black 04","Boss black M 02","Tiger of Sweden black S 01","Boss black M 03","Tiger of Sweden black S 02","Zalando Essentials black 07","Zalando Essentials black 18","Olymp Level Five white 04","Olymp Level Five white 05","Calvin Klein black M 02","Zalando Essentials black 06","Tiger of Sweden black S 03","Zalando Essentials black 01","Olymp Level Five white 03","Olymp Level Five white 07","Zalando Essentials black 08","Zalando Essentials black 19","Olymp Level Five white 02","Olymp Level Five white 08","Zalando Essentials black 03","Calvin Klein black M 01","Zalando Essentials black labelless","Olymp Level Five white 06","Jockey white 03","Zalando Essentials black 05","Zalando Essentials black 13","Zalando Essentials black 09","Calvin Klein black M 03","Zalando Essentials black 17","Calvin Klein black S 06","Jockey white 08","Olymp Level Five white 01","Olymp Level Five white 09","Jockey white 04","Jockey white 09","Calvin Klein black S"],[40,3.58,5.98,3.58,3.58,3.58,10.48,10.48,3.58,19.98,19.98,10.48,19.98,19.98,10.48,19.98,19.98,19.98,3.58,4.79,5.98,19.98,10.48,10.48,4.79,4.79,10.48,4.79,5.98,19.98,19.98,19.98,19.98,19.98,5.98,19.98,19.98,19.98,19.98,5.98,5.98,39.95,12.95,15.98,15.98,15.98,15.98,19.98,19.98,19.98,39.95,19.98,19.98,19.98,19.98,19.98,19.98,5.98,19.98,19.98,4.79,19.98,40,19.98,40,4.79,5.98,25,25,40,4.79,40,4.79,25,25,4.79,5.98,25,25,4.79,40,5.98,25,19.98,4.79,5.98,4.79,40,5.98,10.48,19.98,25,25,19.98,19.98,20],[39,36,34,34,33,30,30,29,27,26,21,21,19,18,17,14,13,13,13,12,12,12,12,11,9,9,8,7,7,7,6,6,6,6,5,4,4,3,3,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,42,35,35,34,33,33,31,30,30,26,26,26,25,25,25,25,24,24,23,23,23,23,22,22,22,21,21,20,20,20,20,19,18,18,18,17,16,16,16,15,11],[1.03,0.1,0.18,0.11,0.11,0.12,0.35,0.36,0.13,0.77,0.95,0.5,1.05,1.11,0.62,1.43,1.54,1.54,0.28,0.4,0.5,1.66,0.87,0.95,0.53,0.53,1.31,0.68,0.85,2.85,3.33,3.33,3.33,3.33,1.2,5,5,6.66,6.66,2.99,2.99,19.98,12.95,15.98,15.98,15.98,15.98,19.98,19.98,19.98,39.95,19.98,19.98,19.98,19.98,0.48,0.57,0.17,0.59,0.61,0.15,0.64,1.33,0.67,1.54,0.18,0.23,1,1,1.6,0.19,1.67,0.2,1.09,1.09,0.21,0.26,1.14,1.14,0.22,1.9,0.28,1.25,1,0.24,0.3,0.25,2.22,0.33,0.58,1.18,1.56,1.56,1.25,1.33,1.82],[0.6,2.7,1.7,2.5,2.4,2.2,2.4,2.3,2,0.8,0.7,1.7,0.7,0.6,1.3,0.8,0.5,0.7,1,0.4,0.4,0.7,1,0.9,0.3,0.3,0.6,0.2,0.2,0.4,0.3,0.3,0.3,0.3,0.3,0.1,0.2,0.2,1,0.1,0.1,0.6,0,0.1,0.1,0.1,0.1,0.3,0,0,0,0,0,0,0,1.8,1.5,2.2,1.7,1.3,1.5,1.4,0.8,1.9,0.7,1.3,1.9,0.8,0.5,0.7,1.4,0.6,2,0.8,0.7,1,2.2,0.8,0.7,1.2,0.5,2,0.5,1.5,2.1,1.9,1,0.5,1.8,1.7,1.7,0.4,0.4,1.2,1.4,0.2],["Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (40.000000 - value)/40.000000 * 100 + '%, #E0E0E0 ' + (40.000000 - value)/40.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (42.000000 - value)/42.000000 * 100 + '%, #CCE5FF ' + (42.000000 - value)/42.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (2.220000 - value)/2.220000 * 100 + '%, #FFCCCC ' + (2.220000 - value)/2.220000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (2.700000 - value)/2.700000 * 100 + '%, #CCFFCC ' + (2.700000 - value)/2.700000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 <div id="times-worn" class="section level3">
 <h3>Times worn</h3>
-<p>Total times worn to date. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <a href="https://www.dropbox.com/s/djrtz3th67dhdlk/Category-Underwear_shirts-Times_used.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/djrtz3th67dhdlk/Category-Underwear_shirts-Times_used.png?raw=1" /></a></p>
+<p>Total times worn to date. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <a href="https://threddit-297417.web.app/Category-Underwear_shirts-Times_used.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Underwear_shirts-Times_used.png" /></a></p>
 </div>
 <div id="cost-per-wear-and-times-worn" class="section level3">
 <h3>Cost per wear and times worn</h3>
-<p>Gray dots trace the use of each item. Blue dots are guide trajectories for items with purchase prices of 5, 10, 20, 50, 100, 200, 400, and 800 EUR. <a href="https://www.dropbox.com/s/q98udhqtfz7pp5g/Category-Underwear_shirts-Cost_and_Cumulative_use.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/q98udhqtfz7pp5g/Category-Underwear_shirts-Cost_and_Cumulative_use.png?raw=1" /></a></p>
+<p>Gray dots trace the use of each item. Blue dots are guide trajectories for items with purchase prices of 5, 10, 20, 50, 100, 200, 400, and 800 EUR. <a href="https://threddit-297417.web.app/Category-Underwear_shirts-Cost_and_Cumulative_use.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Underwear_shirts-Cost_and_Cumulative_use.png" /></a></p>
 </div>
 <div id="cost-per-wear-and-frequency-of-use" class="section level3">
 <h3>Cost per wear and frequency of use</h3>
-<p>Dotted lines show average values for the total use to date of all divested items. <a href="https://www.dropbox.com/s/oo0mjlqd6y62yo8/Category-Underwear_shirts.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/oo0mjlqd6y62yo8/Category-Underwear_shirts.png?raw=1" /></a></p>
+<p>Dotted lines show average values for the total use to date of all divested items. <a href="https://threddit-297417.web.app/Category-Underwear_shirts.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Underwear_shirts.png" /></a></p>
 </div>
 <div id="times-worn---animated-by-date" class="section level3">
 <h3>Times worn - Animated by date</h3>
-<p>Historic progression. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <img src="https://www.dropbox.com/s/qndwzdnkocsifaz/Category-Underwear_shirts-Times_used-animation.gif?raw=1" /></p>
+<p>Historic progression. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <img src="https://threddit-297417.web.app/Category-Underwear_shirts-Times_used-animation.gif" /></p>
 </div>
 <div id="cost-per-wear-and-frequency-of-use---animated-by-date" class="section level3">
 <h3>Cost per wear and frequency of use - Animated by date</h3>
-<p>Historic progression. Dotted lines show average values for the total use to date of all divested items to that date. <img src="https://www.dropbox.com/s/bn5orpfrn0kumbj/Category-Underwear_shirts-animation.gif?raw=1" /></p>
+<p>Historic progression. Dotted lines show average values for the total use to date of all divested items to that date. <img src="https://threddit-297417.web.app/Category-Underwear_shirts-animation.gif" /></p>
 </div>
 <div id="daily-cost" class="section level3">
 <h3>Daily cost</h3>
-<p>Daily cost of category item(s) worn. Green means the daily cost is final and no longer changes. Red means it may still decrease with future use. <a href="https://www.dropbox.com/s/zrhqlzhng4k1s1a/Category-Underwear_shirts-Daily_cost.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/zrhqlzhng4k1s1a/Category-Underwear_shirts-Daily_cost.png?raw=1" /></a></p>
+<p>Daily cost of category item(s) worn. Green means the daily cost is final and no longer changes. Red means it may still decrease with future use. <a href="https://threddit-297417.web.app/Category-Underwear_shirts-Daily_cost.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Underwear_shirts-Daily_cost.png" /></a></p>
 </div>
 
 <div class='containerBox'>
@@ -391,7 +361,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -409,7 +379,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

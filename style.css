@@ -21,6 +21,10 @@
     height:28px;
 }  
 
+.item_image:hover {
+  transform: scale(4);
+}
+
 .containerBox {
     width:100%;
     margin: 0 auto;

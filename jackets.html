@@ -13,12 +13,22 @@
 
 <title>Jackets and hoodies</title>
 
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -40,12 +50,16 @@
   gtag('config', 'G-HYJZNEMFV0');
 </script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -58,32 +72,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -94,10 +83,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -114,40 +99,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -175,7 +133,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -187,7 +145,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -198,10 +156,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -213,7 +184,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -339,7 +309,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -351,32 +321,32 @@ $(document).ready(function () {
 <p>The category level shows item performance and comparison within the category. Click any plot image for full size.</p>
 <div id="item-listing" class="section level3">
 <h3>Item listing</h3>
-<div id="htmlwidget-f8361ad7d9f1b5006831" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f8361ad7d9f1b5006831">{"x":{"filter":"none","data":[["<img class='item_image' src='https://www.dropbox.com/s/kd7gmcxp36uvfvg/Jackets_and_hoodies-005.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/x6dqwo1nwue18qa/Jackets_and_hoodies-006.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/qj36pof60ht29ce/Jackets_and_hoodies-008.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/nx56cy80civl6e9/Jackets_and_hoodies-011.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wibmj6ikhmg35yn/Jackets_and_hoodies-012.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mn8hck1oj5kum1b/Jackets_and_hoodies-014.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/8yfdhozgxnqj74x/Jackets_and_hoodies-015.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/1tcxctyd5fr8skv/Jackets_and_hoodies-016.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/hj9ss2iu5iaq83h/Jackets_and_hoodies-017.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/hffdf5poqo1qene/Jackets_and_hoodies-018.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/g3ng3r5ywopjyzx/Jackets_and_hoodies-001.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/77au43vnmgghdpz/Jackets_and_hoodies-002.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/j53k8x2vi48rrnm/Jackets_and_hoodies-003.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3xwlswgszbvhbb7/Jackets_and_hoodies-004.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/skwn7knuxkhsghn/Jackets_and_hoodies-007.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zjfojf9rxdvdlfo/Jackets_and_hoodies-009.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/9f7zis5120eb63c/Jackets_and_hoodies-010.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/32ldvqx32iwjusr/Jackets_and_hoodies-013.png?raw=1'><\/img>"],["Tierra soft shell","North Bend black vest","Suit Supply gray body warmer","Jack & Jones Core black hoodie","Jack & Jones Premium black hoodie","Elvine Thermore black jacket","Makia black jacket long","Tiger of Sweden body warmer","Helly Hansen Ervik black (Hanko)","Helly Hansen Dubliner black","Chevignon leather jacket","G Star Raw Correct black blazer","G Star Raw black short jacket","Nor Wear winter jacket","Rocky black vest","Diesel black furry hoodie","Quicksilver gray hoodie","Red Label black hoodie"],[150,50,149,60,40,279,229,349,89.95,79.9,200,200,200,200,30,180,200,40],[43,261,32,199,113,115,360,0,15,15,89,68,13,76,122,106,43,63],[3.49,0.19,4.66,0.3,0.35,2.43,0.64,349,6,5.33,2.25,2.94,15.38,2.63,0.25,1.7,4.65,0.63],[0.9,6,0.9,4.4,2.5,4.2,13.2,0,2,2.6,2.3,1.7,0.3,2,1,2.2,1.1,3.3],["Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (349.000000 - value)/349.000000 * 100 + '%, #E0E0E0 ' + (349.000000 - value)/349.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (360.000000 - value)/360.000000 * 100 + '%, #CCE5FF ' + (360.000000 - value)/360.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (15.380000 - value)/15.380000 * 100 + '%, #FFCCCC ' + (15.380000 - value)/15.380000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (13.200000 - value)/13.200000 * 100 + '%, #CCFFCC ' + (13.200000 - value)/13.200000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-54efbfa33ac16703306f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-54efbfa33ac16703306f">{"x":{"filter":"none","data":[["<img class='item_image' src='https://www.dropbox.com/s/8yfdhozgxnqj74x/Jackets_and_hoodies-015.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/x6dqwo1nwue18qa/Jackets_and_hoodies-006.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/nx56cy80civl6e9/Jackets_and_hoodies-011.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mn8hck1oj5kum1b/Jackets_and_hoodies-014.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/wibmj6ikhmg35yn/Jackets_and_hoodies-012.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/kd7gmcxp36uvfvg/Jackets_and_hoodies-005.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/qj36pof60ht29ce/Jackets_and_hoodies-008.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/hj9ss2iu5iaq83h/Jackets_and_hoodies-017.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/hffdf5poqo1qene/Jackets_and_hoodies-018.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/1tcxctyd5fr8skv/Jackets_and_hoodies-016.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/skwn7knuxkhsghn/Jackets_and_hoodies-007.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/zjfojf9rxdvdlfo/Jackets_and_hoodies-009.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/g3ng3r5ywopjyzx/Jackets_and_hoodies-001.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/3xwlswgszbvhbb7/Jackets_and_hoodies-004.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/77au43vnmgghdpz/Jackets_and_hoodies-002.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/32ldvqx32iwjusr/Jackets_and_hoodies-013.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/9f7zis5120eb63c/Jackets_and_hoodies-010.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/j53k8x2vi48rrnm/Jackets_and_hoodies-003.png?raw=1'><\/img>"],["Makia black jacket long","North Bend black vest","Jack & Jones Core black hoodie","Elvine Thermore black jacket","Jack & Jones Premium black hoodie","Tierra soft shell","Suit Supply gray body warmer","Helly Hansen Ervik black (Hanko)","Helly Hansen Dubliner black","Tiger of Sweden body warmer","Rocky black vest","Diesel black furry hoodie","Chevignon leather jacket","Nor Wear winter jacket","G Star Raw Correct black blazer","Red Label black hoodie","Quicksilver gray hoodie","G Star Raw black short jacket"],[229,50,60,279,40,150,149,89.95,79.9,349,30,180,200,200,200,40,200,200],[361,262,199,115,114,43,32,15,15,0,122,106,89,76,68,63,43,13],[0.63,0.19,0.3,2.43,0.35,3.49,4.66,6,5.33,349,0.25,1.7,2.25,2.63,2.94,0.63,4.65,15.38],[13.2,6,4.4,4.2,2.5,0.9,0.9,2,2.6,0,1,2.2,2.3,2,1.7,3.3,1.1,0.3],["Active","Active","Active","Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (349.000000 - value)/349.000000 * 100 + '%, #E0E0E0 ' + (349.000000 - value)/349.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (361.000000 - value)/361.000000 * 100 + '%, #CCE5FF ' + (361.000000 - value)/361.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (15.380000 - value)/15.380000 * 100 + '%, #FFCCCC ' + (15.380000 - value)/15.380000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (13.200000 - value)/13.200000 * 100 + '%, #CCFFCC ' + (13.200000 - value)/13.200000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 <div id="times-worn" class="section level3">
 <h3>Times worn</h3>
-<p>Total times worn to date. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <a href="https://www.dropbox.com/s/0765ouqho70rbln/Category-Jackets_and_hoodies-Times_used.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/0765ouqho70rbln/Category-Jackets_and_hoodies-Times_used.png?raw=1" /></a></p>
+<p>Total times worn to date. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <a href="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Times_used.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Times_used.png" /></a></p>
 </div>
 <div id="cost-per-wear-and-times-worn" class="section level3">
 <h3>Cost per wear and times worn</h3>
-<p>Gray dots trace the use of each item. Blue dots are guide trajectories for items with purchase prices of 5, 10, 20, 50, 100, 200, 400, and 800 EUR. <a href="https://www.dropbox.com/s/162e4zynpe7ry9p/Category-Jackets_and_hoodies-Cost_and_Cumulative_use.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/162e4zynpe7ry9p/Category-Jackets_and_hoodies-Cost_and_Cumulative_use.png?raw=1" /></a></p>
+<p>Gray dots trace the use of each item. Blue dots are guide trajectories for items with purchase prices of 5, 10, 20, 50, 100, 200, 400, and 800 EUR. <a href="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Cost_and_Cumulative_use.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Cost_and_Cumulative_use.png" /></a></p>
 </div>
 <div id="cost-per-wear-and-frequency-of-use" class="section level3">
 <h3>Cost per wear and frequency of use</h3>
-<p>Dotted lines show average values for the total use to date of all divested items. <a href="https://www.dropbox.com/s/iynfo5y82w3mvxl/Category-Jackets_and_hoodies.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/iynfo5y82w3mvxl/Category-Jackets_and_hoodies.png?raw=1" /></a></p>
+<p>Dotted lines show average values for the total use to date of all divested items. <a href="https://threddit-297417.web.app/Category-Jackets_and_hoodies.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Jackets_and_hoodies.png" /></a></p>
 </div>
 <div id="times-worn---animated-by-date" class="section level3">
 <h3>Times worn - Animated by date</h3>
-<p>Historic progression. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <img src="https://www.dropbox.com/s/c32bdpixm0reqae/Category-Jackets_and_hoodies-Times_used-animation.gif?raw=1" /></p>
+<p>Historic progression. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <img src="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Times_used-animation.gif" /></p>
 </div>
 <div id="cost-per-wear-and-frequency-of-use---animated-by-date" class="section level3">
 <h3>Cost per wear and frequency of use - Animated by date</h3>
-<p>Historic progression. Dotted lines show average values for the total use to date of all divested items to that date. <img src="https://www.dropbox.com/s/o3v2zchnqklyepa/Category-Jackets_and_hoodies-animation.gif?raw=1" /></p>
+<p>Historic progression. Dotted lines show average values for the total use to date of all divested items to that date. <img src="https://threddit-297417.web.app/Category-Jackets_and_hoodies-animation.gif" /></p>
 </div>
 <div id="daily-cost" class="section level3">
 <h3>Daily cost</h3>
-<p>Daily cost of category item(s) worn. Green means the daily cost is final and no longer changes. Red means it may still decrease with future use. <a href="https://www.dropbox.com/s/5aqyfu229ln1joh/Category-Jackets_and_hoodies-Daily_cost.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/5aqyfu229ln1joh/Category-Jackets_and_hoodies-Daily_cost.png?raw=1" /></a></p>
+<p>Daily cost of category item(s) worn. Green means the daily cost is final and no longer changes. Red means it may still decrease with future use. <a href="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Daily_cost.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Jackets_and_hoodies-Daily_cost.png" /></a></p>
 </div>
 
 <div class='containerBox'>
@@ -391,7 +361,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -409,7 +379,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

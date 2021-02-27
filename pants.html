@@ -13,12 +13,22 @@
 
 <title>Pants</title>
 
+<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -40,12 +50,16 @@
   gtag('config', 'G-HYJZNEMFV0');
 </script>
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -58,32 +72,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -94,10 +83,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -114,40 +99,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -175,7 +133,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -187,7 +145,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -198,10 +156,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -213,7 +184,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -339,7 +309,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -351,32 +321,32 @@ $(document).ready(function () {
 <p>The category level shows item performance and comparison within the category. Click any plot image for full size.</p>
 <div id="item-listing" class="section level3">
 <h3>Item listing</h3>
-<div id="htmlwidget-1d6d59d957341499fb04" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1d6d59d957341499fb04">{"x":{"filter":"none","data":[["<img class='item_image' src='https://www.dropbox.com/s/yvnp6sasogtrm1c/Pants-005.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/czresiasabqa1qd/Pants-006.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tauabnpjt4ss734/Pants-007.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/o5c854rr75z8a4z/Pants-011.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7tsdunjlwssxz4r/Pants-012.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/qw8e560vl3v45px/Pants-013.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fhtpwpzpm7dkctw/Pants-016.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/esc11gk5k5ic81p/Pants-001.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fwexuuy4hj9ilvk/Pants-002.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/easehngo6uwn366/Pants-003.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mr7kyth64ux6xmd/Pants-004.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mxnaz6dvqxaoy20/Pants-008.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/164xsjkru2tsnpq/Pants-009.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/x1d69wdp9s8o8mk/Pants-010.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/9nfp5r0xwuvjzab/Pants-014.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vwn793wy74jtxoj/Pants-015.png?raw=1'><\/img>"],["Diesel Tepphar blue","Tiger of Sweden Jeans navy","G Star Raw black","Sand black","Sand XO blue checkered","Tiger of Sweden Jeans black 02","Acne Studios North stay black","Diesel Slenker black","Diesel Thavar blue 01","Diesel Thavar blue 02","Diesel Slenker blue","Lee black","Tiger of Sweden Jeans black 01","Nomo purple","Tiger of Sweden Jeans blue jeans","Michael Kors Kent black"],[155,129,150,150,150,129,180,150,175,175,150,100,170,100,99.9,99],[128,33,20,26,5,14,101,89,109,107,100,56,90,89,61,93],[1.21,3.91,7.5,5.77,30,9.21,1.78,1.69,1.61,1.64,1.5,1.79,1.89,1.12,1.64,1.06],[3,1,0.3,0.2,0,0.5,7.1,6.3,6.3,7,7.9,2.1,1.5,0.8,6.3,17.7],["Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (180.000000 - value)/180.000000 * 100 + '%, #E0E0E0 ' + (180.000000 - value)/180.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (128.000000 - value)/128.000000 * 100 + '%, #CCE5FF ' + (128.000000 - value)/128.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.890000 - value)/1.890000 * 100 + '%, #FFCCCC ' + (1.890000 - value)/1.890000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (17.700000 - value)/17.700000 * 100 + '%, #CCFFCC ' + (17.700000 - value)/17.700000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-dc35712d01f43951842f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dc35712d01f43951842f">{"x":{"filter":"none","data":[["<img class='item_image' src='https://www.dropbox.com/s/yvnp6sasogtrm1c/Pants-005.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fhtpwpzpm7dkctw/Pants-016.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/czresiasabqa1qd/Pants-006.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/o5c854rr75z8a4z/Pants-011.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/tauabnpjt4ss734/Pants-007.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/qw8e560vl3v45px/Pants-013.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/7tsdunjlwssxz4r/Pants-012.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/fwexuuy4hj9ilvk/Pants-002.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/easehngo6uwn366/Pants-003.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mr7kyth64ux6xmd/Pants-004.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/vwn793wy74jtxoj/Pants-015.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/164xsjkru2tsnpq/Pants-009.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/esc11gk5k5ic81p/Pants-001.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/x1d69wdp9s8o8mk/Pants-010.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/9nfp5r0xwuvjzab/Pants-014.png?raw=1'><\/img>","<img class='item_image' src='https://www.dropbox.com/s/mxnaz6dvqxaoy20/Pants-008.png?raw=1'><\/img>"],["Diesel Tepphar blue","Acne Studios North stay black","Tiger of Sweden Jeans navy","Sand black","G Star Raw black","Tiger of Sweden Jeans black 02","Sand XO blue checkered","Diesel Thavar blue 01","Diesel Thavar blue 02","Diesel Slenker blue","Michael Kors Kent black","Tiger of Sweden Jeans black 01","Diesel Slenker black","Nomo purple","Tiger of Sweden Jeans blue jeans","Lee black"],[155,180,129,150,150,129,150,175,175,150,99,170,150,100,99.9,100],[128,101,33,26,20,14,5,109,107,100,93,90,89,89,61,56],[1.21,1.78,3.91,5.77,7.5,9.21,30,1.61,1.64,1.5,1.06,1.89,1.69,1.12,1.64,1.79],[3,7.1,1,0.2,0.3,0.5,0,6.3,7,7.9,17.7,1.5,6.3,0.8,6.3,2.1],["Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (180.000000 - value)/180.000000 * 100 + '%, #E0E0E0 ' + (180.000000 - value)/180.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (128.000000 - value)/128.000000 * 100 + '%, #CCE5FF ' + (128.000000 - value)/128.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.890000 - value)/1.890000 * 100 + '%, #FFCCCC ' + (1.890000 - value)/1.890000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (17.700000 - value)/17.700000 * 100 + '%, #CCFFCC ' + (17.700000 - value)/17.700000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 <div id="times-worn" class="section level3">
 <h3>Times worn</h3>
-<p>Total times worn to date. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <a href="https://www.dropbox.com/s/77vvhzb8y08dug5/Category-Pants-Times_used.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/77vvhzb8y08dug5/Category-Pants-Times_used.png?raw=1" /></a></p>
+<p>Total times worn to date. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <a href="https://threddit-297417.web.app/Category-Pants-Times_used.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Pants-Times_used.png" /></a></p>
 </div>
 <div id="cost-per-wear-and-times-worn" class="section level3">
 <h3>Cost per wear and times worn</h3>
-<p>Gray dots trace the use of each item. Blue dots are guide trajectories for items with purchase prices of 5, 10, 20, 50, 100, 200, 400, and 800 EUR. <a href="https://www.dropbox.com/s/a0ut3gqxwubwjw0/Category-Pants-Cost_and_Cumulative_use.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/a0ut3gqxwubwjw0/Category-Pants-Cost_and_Cumulative_use.png?raw=1" /></a></p>
+<p>Gray dots trace the use of each item. Blue dots are guide trajectories for items with purchase prices of 5, 10, 20, 50, 100, 200, 400, and 800 EUR. [<img src="https://threddit-297417.web.app/Category-Pants-Cost_and_Cumulative_use.png" />]<a href="https://threddit-297417.web.app/Category-Pants-Cost_and_Cumulative_use.png" class="uri">https://threddit-297417.web.app/Category-Pants-Cost_and_Cumulative_use.png</a>){target="_blank"}</p>
 </div>
 <div id="cost-per-wear-and-frequency-of-use" class="section level3">
 <h3>Cost per wear and frequency of use</h3>
-<p>Dotted lines show average values for the total use to date of all divested items. <a href="https://www.dropbox.com/s/3x3qyljsv1k8s4k/Category-Pants.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/3x3qyljsv1k8s4k/Category-Pants.png?raw=1" /></a></p>
+<p>Dotted lines show average values for the total use to date of all divested items. <a href="https://threddit-297417.web.app/Category-Pants.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Pants.png" /></a></p>
 </div>
 <div id="times-worn---animated-by-date" class="section level3">
 <h3>Times worn - Animated by date</h3>
-<p>Historic progression. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <img src="https://www.dropbox.com/s/lr05abvr7fsrdr1/Category-Pants-Times_used-animation.gif?raw=1" /></p>
+<p>Historic progression. Green line items are divested, gray still in use. Green areas show 1 and 2 SD ranges for divested items. <img src="https://threddit-297417.web.app/Category-Pants-Times_used-animation.gif" /></p>
 </div>
 <div id="cost-per-wear-and-frequency-of-use---animated-by-date" class="section level3">
 <h3>Cost per wear and frequency of use - Animated by date</h3>
-<p>Historic progression. Dotted lines show average values for the total use to date of all divested items to that date. <img src="https://www.dropbox.com/s/0mi4eymszo2pgly/Category-Pants-animation.gif?raw=1" /></p>
+<p>Historic progression. Dotted lines show average values for the total use to date of all divested items to that date. <img src="https://threddit-297417.web.app/Category-Pants-animation.gif" /></p>
 </div>
 <div id="daily-cost" class="section level3">
 <h3>Daily cost</h3>
-<p>Daily cost of category item(s) worn. Green means the daily cost is final and no longer changes. Red means it may still decrease with future use. <a href="https://www.dropbox.com/s/qetz57s1j80tjin/Category-Pants-Daily_cost.png?raw=1" target="_blank"><img src="https://www.dropbox.com/s/qetz57s1j80tjin/Category-Pants-Daily_cost.png?raw=1" /></a></p>
+<p>Daily cost of category item(s) worn. Green means the daily cost is final and no longer changes. Red means it may still decrease with future use. <a href="https://threddit-297417.web.app/Category-Pants-Daily_cost.png" target="_blank"><img src="https://threddit-297417.web.app/Category-Pants-Daily_cost.png" /></a></p>
 </div>
 
 <div class='containerBox'>
@@ -391,7 +361,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -409,7 +379,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
