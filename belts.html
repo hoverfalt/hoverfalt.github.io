@@ -13,22 +13,12 @@
 
 <title>Belts</title>
 
-<script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -50,16 +40,12 @@
   gtag('config', 'G-HYJZNEMFV0');
 </script>
 
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
-
 <style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -72,7 +58,32 @@ if (window.hljs) {
 
 
 
-
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -83,6 +94,10 @@ if (window.hljs) {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -99,13 +114,40 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
-pre code {
-  padding: 0;
-}
 </style>
 
 
 <style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
 .dropdown-submenu {
   position: relative;
 }
@@ -133,7 +175,7 @@ pre code {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
+  border-left-color: #ffffff;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -145,7 +187,7 @@ pre code {
 }
 </style>
 
-<script type="text/javascript">
+<script>
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -156,23 +198,10 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.tab('show');
+  menuAnchor.parent().addClass('active');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
 });
 </script>
 
@@ -184,6 +213,7 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -309,7 +339,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div id="header">
+<div class="fluid-row" id="header">
 
 
 
@@ -321,8 +351,8 @@ $(document).ready(function () {
 <p>The category level shows item performance and comparison within the category. Click any plot image for full size.</p>
 <div id="item-listing" class="section level3">
 <h3>Item listing</h3>
-<div id="htmlwidget-be9536a2536e5f1e6911" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-be9536a2536e5f1e6911">{"x":{"filter":"none","data":[["<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-002.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-001.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-005.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-011.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-012.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-013.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-010.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-003.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-014.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-009.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-004.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-008.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-006.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-007.png?alt=media'><\/img>"],["Diesel black matte","Diesel black blank","Diesel brown","Unknown white","Tiger of Sweden white 01","Tiger of Sweden white 02","Karl Lagerfeld white","Sand black blank","Diesel black matte 02","Diesel White 90 cm","Tiger of Sweden Black","Diesel Gray","Camel Brown","Ralph Lauren Brown"],[60,60,60,60,60,60,69.95,60,59.95,60,60,60,60,60],[411,186,119,85,81,62,34,17,0,122,80,20,2,1],[0.15,0.32,0.5,0.71,0.74,0.97,2.06,3.53,59.95,0.49,0.75,3,30,60],[9,4.1,2.6,1.4,1.3,1,0.7,0.4,0,2.9,3.3,0.8,0.1,0],["Active","Active","Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (69.950000 - value)/69.950000 * 100 + '%, #E0E0E0 ' + (69.950000 - value)/69.950000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (411.000000 - value)/411.000000 * 100 + '%, #CCE5FF ' + (411.000000 - value)/411.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (60.000000 - value)/60.000000 * 100 + '%, #FFCCCC ' + (60.000000 - value)/60.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (9.000000 - value)/9.000000 * 100 + '%, #CCFFCC ' + (9.000000 - value)/9.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
+<div id="htmlwidget-107f5e9189fe70a7ea2f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-107f5e9189fe70a7ea2f">{"x":{"filter":"none","data":[["<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-002.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-001.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-005.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-011.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-012.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-013.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-010.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-003.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-014.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-009.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-004.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-008.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-006.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Belts-007.png?alt=media'><\/img>"],["Diesel black matte","Diesel black blank","Diesel brown","Unknown white","Tiger of Sweden white 01","Tiger of Sweden white 02","Karl Lagerfeld white","Sand black blank","Diesel black matte 02","Diesel White 90 cm","Tiger of Sweden Black","Diesel Gray","Camel Brown","Ralph Lauren Brown"],[60,60,60,60,60,60,69.95,60,59.95,60,60,60,60,60],[414,186,119,85,81,62,34,17,0,122,80,20,2,1],[0.14,0.32,0.5,0.71,0.74,0.97,2.06,3.53,59.95,0.49,0.75,3,30,60],[9,4,2.6,1.4,1.3,1,0.7,0.4,0,2.9,3.3,0.8,0.1,0],["Active","Active","Active","Active","Active","Active","Active","Active","Active","Divested","Divested","Divested","Divested","Divested"]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Item<\/th>\n      <th>Price<\/th>\n      <th>Times worn<\/th>\n      <th>Cost per wear<\/th>\n      <th>Wears per month<\/th>\n      <th>Status<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Item","Price","Times worn","Cost per wear","Wers per month","Status"],"columnDefs":[{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 1, 3, \",\", \".\"); }"},{"targets":[2,4],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"80px","targets":[2,3,4,5]},{"width":"45px","targets":6},{"className":"dt-center","targets":[0,6]},{"className":"dt-body-right","targets":[0,2,3,4,5,6]}],"dom":"t","order":[[6,"asc"],[3,"desc"]],"pageLength":200,"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (69.950000 - value)/69.950000 * 100 + '%, #E0E0E0 ' + (69.950000 - value)/69.950000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (414.000000 - value)/414.000000 * 100 + '%, #CCE5FF ' + (414.000000 - value)/414.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (60.000000 - value)/60.000000 * 100 + '%, #FFCCCC ' + (60.000000 - value)/60.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (9.000000 - value)/9.000000 * 100 + '%, #CCFFCC ' + (9.000000 - value)/9.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background-color':value == \"Divested\" ? \"#80E0B7\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 <div id="times-worn" class="section level3">
 <h3>Times worn</h3>
@@ -361,7 +391,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -379,7 +409,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    $(this).parent().toggleClass('nav-tabs-open')
   });
 });
 </script>
