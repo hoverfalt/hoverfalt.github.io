@@ -13,8 +13,8 @@
 
 <title>Portfolio</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
-<script src="site_libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -32,14 +32,15 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.13/datatables.js"></script>
-<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="site_libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
-<script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<script src="site_libs/datatables-binding-0.27/datatables.js"></script>
+<link href="site_libs/dt-core-bootstrap4-1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-bootstrap4-1.12.1/css/dataTables.bootstrap4.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-bootstrap4-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="site_libs/dt-core-bootstrap4-1.12.1/js/dataTables.bootstrap4.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HYJZNEMFV0"></script>
 <script>
@@ -159,11 +160,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -192,8 +197,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -201,16 +206,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -326,8 +324,8 @@ $(document).ready(function () {
 the portfolio. Click any image for full size.</p>
 <div id="category-listing" class="section level3">
 <h3>Category listing</h3>
-<div id="htmlwidget-85f6762d17642d0a92ca" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-85f6762d17642d0a92ca">{"x":{"filter":"none","data":[[null,"<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Jackets_and_hoodies.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Blazers_and_vests.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Knits.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Shirts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-T-shirts_and_tanks.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Pants.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Shorts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Belts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Socks.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Shoes.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Underwear_shirts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Underwear_boxers.png?alt=media'><\/img>"],["Total","Jackets and hoodies","Blazers and vests","Knits","Shirts","T-shirts and tanks","Pants","Shorts","Belts","Socks","Shoes","Underwear shirts","Underwear boxers"],[222,10,3,1,18,9,11,11,8,75,12,43,21],[10852.36,1723.85,711.6,100,1636.96,544.05,1463,831.99,489.9,380.14,2040.15,706.61,224.11],[null,1.26391858552632,12.4535433070866,8.69565217391304,3.09674347158218,1.57203264094955,2.03790218790219,1.23992548435171,0.54445868033312,0.387240932642487,1.31701507049101,0.621904942965779,0.525463970969414],[null,0.720283533260633,0.0327153762268266,0.00654307524536532,0.49618320610687,0.232824427480916,0.61886586695747,0.252998909487459,0.613413304252999,0.695201744820065,0.904034896401309,0.920392584514722,0.919847328244275],[2811.1225767476,332.288606755887,148.709159446672,20.7671518657247,560.841518040361,133.592773857793,460.333658066074,114.500425316143,121.902042318314,98.2618587941644,434.579067725759,208.924794689245,176.421519871468],[0.259033295683852,0.192759582768737,0.208978582696279,0.207671518657247,0.34261162034525,0.245552382791643,0.314650483982279,0.137622357619855,0.248830459927156,0.25848860628759,0.213013292025468,0.295672003919058,0.787209494763588]],"container":"<table class=\"compact stripe hover row-border order-column\">\n  <thead>\n    <tr>\n      <th>Img<\/th>\n      <th>Category<\/th>\n      <th>Active items<\/th>\n      <th>Inventory value<\/th>\n      <th>Cost per wear<\/th>\n      <th>Days used<\/th>\n      <th>Yearly cost<\/th>\n      <th>Inventory turnover<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"colnames":["Img","Category","Active items","Inventory value","Cost per wear","Days used","Yearly cost","Inventory turnover"],"columnDefs":[{"targets":7,"render":"function(data, type, row, meta) { return DTWidget.formatRound(data, 2, 3, \",\", \".\"); }"},{"targets":5,"render":"function(data, type, row, meta) { return DTWidget.formatPercentage(data, 0, 3, \",\", \".\"); }"},{"targets":[3,6],"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 0, 3, \"\", \".\", false); }"},{"targets":4,"render":"function(data, type, row, meta) { return DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false); }"},{"width":"28px","targets":0},{"width":"90px","targets":[2,3,4,5,6,7]},{"className":"dt-center","targets":0},{"className":"dt-body-right","targets":[0,2,3,4,5,6,7]}],"dom":"t","pageLength":200,"order":[],"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (75.000000 - value)/75.000000 * 100 + '%, #E0E0E0 ' + (75.000000 - value)/75.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (2040.150000 - value)/2040.150000 * 100 + '%, #CCE5FF ' + (2040.150000 - value)/2040.150000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (12.453543 - value)/12.453543 * 100 + '%, #FFCCCC ' + (12.453543 - value)/12.453543 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (1.000000 - value)/1.000000 * 100 + '%, #CCFFCC ' + (1.000000 - value)/1.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (560.841518 - value)/560.841518 * 100 + '%, #FFCCCC ' + (560.841518 - value)/560.841518 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + (0.787209 - value)/0.787209 * 100 + '%, #E0E0E0 ' + (0.787209 - value)/0.787209 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[1]; $(row).css({'font-weight':value == \"Total\" ? \"bold\" : value});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.rowCallback"],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5e174c0769fcf0dac7c7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5e174c0769fcf0dac7c7">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[[null,"<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Jackets_and_hoodies.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Blazers_and_vests.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Knits.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Shirts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-T-shirts_and_tanks.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Pants.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Shorts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Belts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Socks.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Shoes.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Underwear_shirts.png?alt=media'><\/img>","<img class='item_image' src='https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Category_image-Underwear_boxers.png?alt=media'><\/img>"],["Total","Jackets and hoodies","Blazers and vests","Knits","Shirts","T-shirts and tanks","Pants","Shorts","Belts","Socks","Shoes","Underwear shirts","Underwear boxers"],[218,10,3,2,18,9,11,11,8,73,11,42,20],[10774.91,1723.85,711.6,249,1636.96,544.05,1463,831.99,489.9,376.94,1850.2,686.63,210.79],[null,1.23003201280512,12.2604651162791,11.9347826086957,3.03382994732882,1.55587371512482,1.96946517412935,1.23992548435171,0.535876418663304,0.381070745697897,1.28882017126546,0.611442990654206,0.515312658871378],[null,0.724653148345784,0.0330843116328709,0.0064034151547492,0.499466382070438,0.231590181430096,0.625400213447172,0.247598719316969,0.613660618996798,0.692636072572038,0.905016008537887,0.921558164354322,0.919423692636073],[2768.2298855656,325.341498285547,148.054602764885,27.894529256183,553.083064677384,131.518652728347,449.571938201203,112.056446120494,120.028882995689,96.3393208053856,425.737053799451,205.670302227231,172.933593703797],[0.256914432284409,0.188729586846621,0.208058744751104,0.112026221912382,0.337872070592674,0.241740010529082,0.307294557895559,0.13468484731847,0.245006905482117,0.255582641283455,0.230103261160659,0.29953585224536,0.820407010312618]],"container":"<table class=\"table table-condensed table-striped table-hover row-border order-column\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Category<\/th>\n      <th>Active items<\/th>\n      <th>Inventory value<\/th>\n      <th>Cost per wear<\/th>\n      <th>Days used<\/th>\n      <th>Yearly cost<\/th>\n      <th>Inventory turnover<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"autoWidth":true,"columnDefs":[{"targets":7,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatRound(data, 2, 3, \",\", \".\", null);\n  }"},{"targets":5,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatPercentage(data, 0, 3, \",\", \".\", null);\n  }"},{"targets":3,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \" €\", 0, 3, \"\", \".\", false, null);\n  }"},{"targets":6,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \" €\", 0, 3, \"\", \".\", false, null);\n  }"},{"targets":4,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatCurrency(data, \" €\", 2, 3, \",\", \".\", false, null);\n  }"},{"width":"28px","targets":0},{"width":"86px","targets":[2,3,4,5,6,7]},{"className":"dt-body-center","targets":0},{"className":"dt-body-right","targets":[2,3,4,5,6,7]},{"className":"dt-head-center","targets":[2,3,4,5,6,7]},{"orderable":false,"targets":0}],"dom":"t","pageLength":200,"order":[],"orderClasses":false,"lengthMenu":[10,25,50,100,200],"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[2]; $(this.api().cell(row, 2).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(73.000000 - value, 0)/73.000000 * 100 + '%, #E0E0E0 ' + Math.max(73.000000 - value, 0)/73.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[3]; $(this.api().cell(row, 3).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(1850.200000 - value, 0)/1850.200000 * 100 + '%, #CCE5FF ' + Math.max(1850.200000 - value, 0)/1850.200000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[4]; $(this.api().cell(row, 4).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(12.260465 - value, 0)/12.260465 * 100 + '%, #FFCCCC ' + Math.max(12.260465 - value, 0)/12.260465 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[5]; $(this.api().cell(row, 5).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(1.000000 - value, 0)/1.000000 * 100 + '%, #CCFFCC ' + Math.max(1.000000 - value, 0)/1.000000 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[6]; $(this.api().cell(row, 6).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(553.083065 - value, 0)/553.083065 * 100 + '%, #FFCCCC ' + Math.max(553.083065 - value, 0)/553.083065 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[7]; $(this.api().cell(row, 7).node()).css({'background':isNaN(parseFloat(value)) || value <= 0.000000 ? '' : 'linear-gradient(90.000000deg, transparent ' + Math.max(0.820407 - value, 0)/0.820407 * 100 + '%, #E0E0E0 ' + Math.max(0.820407 - value, 0)/0.820407 * 100 + '%)','background-size':'100% 90%','background-repeat':'no-repeat','background-position':'center'});\nvar value=data[1]; $(row).css({'font-weight':value == \"Total\" ? \"bold\" : null});\n}"}},"evals":["options.columnDefs.0.render","options.columnDefs.1.render","options.columnDefs.2.render","options.columnDefs.3.render","options.columnDefs.4.render","options.rowCallback"],"jsHooks":[]}</script>
 </div>
 <div id="active-items-by-category" class="section level3">
 <h3>Active items by category</h3>
@@ -397,7 +395,7 @@ src="https://firebasestorage.googleapis.com/v0/b/threddit-plots/o/Portfolio-Mont
 </div>
 
 <div class='containerBox'>
-<div class='containerIcon'><a rel="license" target=”_blank”, href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" id="fixed-width-CC" /></a></div><div class="containerText">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. CC BY, Olof Hoverfält 2022</div>
+<div class='containerIcon'><a rel="license" target=”_blank”, href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" id="fixed-width-CC" /></a></div><div class="containerText">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. CC BY, Olof Hoverfält 2023</div>
 </div>
 
 
