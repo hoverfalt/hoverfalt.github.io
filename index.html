@@ -13,8 +13,8 @@
 
 <title>The Wardrobe Diary Project</title>
 
-<script src="site_libs/header-attrs-2.23/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -84,7 +84,6 @@ if (window.hljs) {
 
 
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -109,9 +108,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -169,15 +165,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -206,8 +198,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -215,9 +207,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -261,7 +260,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -296,178 +295,78 @@ $(document).ready(function () {
 </div>
 
 
-<p><a href="track_your_wardrobe.html">Track your own wardrobe</a> and
-find out your real cost and sustainability of your use of clothes or
-explore <a href="portfolio.html">my digital wardrobe</a> showing all my
-garment and category performance data.</p>
+<p><a href="track_your_wardrobe.html">Track your own wardrobe</a> and find out your real cost and sustainability of your use of clothes or explore <a href="portfolio.html">my digital wardrobe</a> showing all my garment and category performance data.</p>
 <div id="showing-the-real-cost-of-clothes" class="section level3">
 <h3>Showing the real cost of clothes</h3>
-<p>The Wardrobe Diary project started as my personal attempt to build a
-proper understanding of the real cost and eventually environmental
-impact of my use of clothes. The data set on this site is a continuous
-daily log of my own use of each piece of garment since 1 January 2018.
-In addition to showing the real cost per wear and frequency of use for
-each garment, this enables studying the correlation between price and
-quality (as measured by durability), as well as actual vs imagined use.
-I have since opened the service for anyone to participate and track
-their wardrobe for free.</p>
+<p>The Wardrobe Diary project started as my personal attempt to build a proper understanding of the real cost and eventually environmental impact of my use of clothes. The data set on this site is a continuous daily log of my own use of each piece of garment since 1 January 2018. In addition to showing the real cost per wear and frequency of use for each garment, this enables studying the correlation between price and quality (as measured by durability), as well as actual vs imagined use. I have since opened the service for anyone to participate and track their wardrobe for free.</p>
 <center>
-<a href="https://hoverfalt.github.io/shirts.html"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Front_page_image_01.jpg?alt=media" /></a>
-<a href="https://hoverfalt.github.io/socks.html"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Front_page_image_02.jpg?alt=media" /></a>
-<a href="https://hoverfalt.github.io/shoes.html"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Front_page_image_03.jpg?alt=media" /></a>
+<a href="https://hoverfalt.github.io/shirts.html"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Front_page_image_01.jpg?alt=media" /></a> <a href="https://hoverfalt.github.io/socks.html"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Front_page_image_02.jpg?alt=media" /></a> <a href="https://hoverfalt.github.io/shoes.html"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Front_page_image_03.jpg?alt=media" /></a>
 </center>
 </div>
-<div id="making-data-supported-consumption-choices"
-class="section level3">
+<div id="making-data-supported-consumption-choices" class="section level3">
 <h3>Making data-supported consumption choices</h3>
-<p>Visibility into item-level cost efficiency has been eye-opening in
-many ways. My main goal is not to drive down cost though, but to make
-better consumption choices especially from a sustainability perspective.
-This means only buying what I need, actually using what I have, and
-taking good care of each item to maximise its lifetime. Visibility helps
-in uncovering and quantifying opportunities for improvement, but also
-provides justification and peace of mind in choices that might otherwise
-keep feeling questionable.</p>
+<p>Visibility into item-level cost efficiency has been eye-opening in many ways. My main goal is not to drive down cost though, but to make better consumption choices especially from a sustainability perspective. This means only buying what I need, actually using what I have, and taking good care of each item to maximise its lifetime. Visibility helps in uncovering and quantifying opportunities for improvement, but also provides justification and peace of mind in choices that might otherwise keep feeling questionable.</p>
 <center>
-<a href="https://hoverfalt.github.io/shoes.html"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Making_data-supported_consumption_choices.jpg?alt=media" /></a>
+<a href="https://hoverfalt.github.io/shoes.html"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Making_data-supported_consumption_choices.jpg?alt=media" /></a>
 </center>
 </div>
 <div id="track-your-own-wardrobe" class="section level3">
 <h3>Track your own wardrobe</h3>
-<p>If you are interested in exploring your own use of clothes, please
-join the project and <a href="https://bit.ly/3rSnUlE"
-target="_blank">sign up for your own wardrobe diary</a>. By tracking
-even a part of your wardrobe, you gain insights into your real use of
-clothes, item cost performance, your favorites, and the items you should
-probably consider putting forward. In a bigger picture, you will also
-contribute to the project of building a broader understanding of how we
-actually use the clothes we have, and hopefully provide insights and
-opportunities for betterment. This is my passion and I would love to
-have you join the project! Feel free to reach out if you have any
-questions about the project or your participation. The easiest way is to
-start with the sign-up form.</p>
+<p>If you are interested in exploring your own use of clothes, please join the project and <a href="https://bit.ly/3rSnUlE" target="_blank">sign up for your own wardrobe diary</a>. By tracking even a part of your wardrobe, you gain insights into your real use of clothes, item cost performance, your favorites, and the items you should probably consider putting forward. In a bigger picture, you will also contribute to the project of building a broader understanding of how we actually use the clothes we have, and hopefully provide insights and opportunities for betterment. This is my passion and I would love to have you join the project! Feel free to reach out if you have any questions about the project or your participation. The easiest way is to start with the sign-up form.</p>
 <center>
-<a href="https://bit.ly/3rSnUlE" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Track_your_own_wardrobe_mobile.jpg?alt=media" /></a>
+<a href="https://bit.ly/3rSnUlE" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Track_your_own_wardrobe_mobile.jpg?alt=media" /></a>
 </center>
 </div>
 <div id="insights-and-learnings" class="section level3">
 <h3>Insights and learnings</h3>
-<p>For a more elaborate story of my insights, learnings, and behavior
-change, please see my blog post <a
-href="https://www.reaktor.com/blog/why-ive-tracked-every-single-piece-of-clothing-ive-worn-for-three-years/"
-target="_blank">Why I’ve tracked every single piece of clothing I’ve
-worn for three years</a>.</p>
+<p>For a more elaborate story of my insights, learnings, and behavior change, please see my blog post <a href="https://www.reaktor.com/blog/why-ive-tracked-every-single-piece-of-clothing-ive-worn-for-three-years/" target="_blank">Why I’ve tracked every single piece of clothing I’ve worn for three years</a>.</p>
 <center>
-<a
-href="https://www.reaktor.com/blog/why-ive-tracked-every-single-piece-of-clothing-ive-worn-for-three-years/"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Reaktor_blog_post.jpg?alt=media" /></a>
+<a href="https://www.reaktor.com/blog/why-ive-tracked-every-single-piece-of-clothing-ive-worn-for-three-years/" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Reaktor_blog_post.jpg?alt=media" /></a>
 </center>
 </div>
 <div id="media-coverage" class="section level3">
 <h3>Media coverage</h3>
-<p>I’m humbled and inspired by all the interest and engagement this
-project is getting among consumers and fashion brands and retailers
-alike. It has been picked up by many prominent media outlets. Here is
-some of the media coverage from different perspectives. If you would
-like to hear more about the project and the consumer insights generated,
-please send me a note and I’ll get back to you asap. My contacts are at
-the bottom of this page.</p>
+<p>I’m humbled and inspired by all the interest and engagement this project is getting among consumers and fashion brands and retailers alike. It has been picked up by many prominent media outlets. Here is some of the media coverage from different perspectives. If you would like to hear more about the project and the consumer insights generated, please send me a note and I’ll get back to you asap. My contacts are at the bottom of this page.</p>
 <center>
-<a
-href="https://www.svt.se/nyheter/inrikes/garderobsillusionen-sa-fel-har-vi-om-vara-klader-1"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/SVT-nyheter-Koll_pa_garderoben.jpg?alt=media" /></a>
+<a href="https://www.svt.se/nyheter/inrikes/garderobsillusionen-sa-fel-har-vi-om-vara-klader-1" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/SVT-nyheter-Koll_pa_garderoben.jpg?alt=media" /></a>
 </center>
 <center>
-<a
-href="https://www.forbes.com/sites/kevinrozario/2023/06/30/how-tracking-wardrobe-usage-boost-the-circular-economy/"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Forbes.png?alt=media" /></a>
+<a href="https://www.forbes.com/sites/kevinrozario/2023/06/30/how-tracking-wardrobe-usage-boost-the-circular-economy/" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Forbes.png?alt=media" /></a>
 </center>
 <center>
-<p><a
-href="https://www.svt.se/nyheter/inrikes/garderobsillusionen-sa-fel-har-vi-om-vara-klader-1"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-SVT_nyheter.png?alt=media" /></a>
-<a href="https://www.hs.fi/elama/art-2000007811695.html"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Helsingin_Sanomat.png?alt=media" /></a></p>
-<p><a href="https://svenska.yle.fi/a/7-10012585" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-YLE_Nyheter.png?alt=media" /></a>
-<a href="https://arenan.yle.fi/audio/1-61749228" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-YLE_Radio_Vega.png?alt=media" /></a></p>
-<p><a href="https://open.spotify.com/episode/1aDvGbCWOvx3YCstFXrgqL"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Under_Femton.png?alt=media" /></a>
-<a href="https://www.ilikeradio.se/podcasts/martina-thun/22241/"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-RIXFM.png?alt=media" /></a></p>
-<a
-href="https://scandinavianmind.com/podcast/olov-hoverfalt-on-humanizing-ai-artifical-intelligence-creativity"
-target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Scandinavian_MIND.png?alt=media" /></a>
-<a href="https://ai-podden.se/" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-AI_podden.png?alt=media" /></a>
+<p><a href="https://www.svt.se/nyheter/inrikes/garderobsillusionen-sa-fel-har-vi-om-vara-klader-1" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-SVT_nyheter.png?alt=media" /></a> <a href="https://www.hs.fi/elama/art-2000007811695.html" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Helsingin_Sanomat.png?alt=media" /></a></p>
+<p><a href="https://svenska.yle.fi/a/7-10012585" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-YLE_Nyheter.png?alt=media" /></a> <a href="https://arenan.yle.fi/audio/1-61749228" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-YLE_Radio_Vega.png?alt=media" /></a></p>
+<p><a href="https://open.spotify.com/episode/1aDvGbCWOvx3YCstFXrgqL" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Under_Femton.png?alt=media" /></a> <a href="https://www.ilikeradio.se/podcasts/martina-thun/22241/" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-RIXFM.png?alt=media" /></a></p>
+<a href="https://scandinavianmind.com/podcast/olov-hoverfalt-on-humanizing-ai-artifical-intelligence-creativity" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-Scandinavian_MIND.png?alt=media" /></a> <a href="https://ai-podden.se/" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Media-AI_podden.png?alt=media" /></a>
 </center>
 </div>
-<div id="expanding-comparability-to-all-spending"
-class="section level3">
+<div id="expanding-comparability-to-all-spending" class="section level3">
 <h3>Expanding comparability to all spending</h3>
-<p>Since the use data is exhaustive both in terms of items and time,
-each category (kind of clothing) and the portfolio (entire wardrobe)
-describe the “utility of clothes”. This makes clothes comparable to not
-only other types of physical assets that deteriorate with use, but to
-service models providing any kind of continuous utility, be it physical
-or intangible, metered or flat rate. This in turn enables evaluating
-consumption alternatives and choices across types of spending and across
-business models.</p>
+<p>Since the use data is exhaustive both in terms of items and time, each category (kind of clothing) and the portfolio (entire wardrobe) describe the “utility of clothes”. This makes clothes comparable to not only other types of physical assets that deteriorate with use, but to service models providing any kind of continuous utility, be it physical or intangible, metered or flat rate. This in turn enables evaluating consumption alternatives and choices across types of spending and across business models.</p>
 <center>
-<a href="https://hoverfalt.github.io/portfolio.html"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Expanding_comparability_to_all_spending.jpg?alt=media" /></a>
+<a href="https://hoverfalt.github.io/portfolio.html"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Expanding_comparability_to_all_spending.jpg?alt=media" /></a>
 </center>
 </div>
 <div id="further-development" class="section level3">
 <h3>Further development</h3>
-<p>I built this for myself, but due to popular interest, I have opened
-the service for everyone to use for free. I’m also thinking about how to
-best go about making something like this available for broader good at
-real scale. If you have ideas or would like to contribute or partner up,
-let’s chat!</p>
+<p>I built this for myself, but due to popular interest, I have opened the service for everyone to use for free. I’m also thinking about how to best go about making something like this available for broader good at real scale. If you have ideas or would like to contribute or partner up, let’s chat!</p>
 <center>
-<a href="bit.ly/3aQqZsb" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/System_architecture.jpg?alt=media" /></a>
+<a href="bit.ly/3aQqZsb" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/System_architecture.jpg?alt=media" /></a>
 </center>
 </div>
 <div id="contacts" class="section level3">
 <h3>Contacts</h3>
-<p>If you like what you have seen, or really don’t for that matter,
-please let me know! Send me a note and I’ll get back to you asap 👋</p>
-<p><a href="https://bit.ly/3tEkCkx" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Contact_icon-LinkedIn.png?alt=media" /></a>
-<a href="https://bit.ly/3tEkCkx"
-target="_blank">linkedin.com/in/hoverfalt</a></p>
-<p><a href="https://bit.ly/3OWVAHJ" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Contact_icon-Instagram.png?alt=media" /></a>
-<a href="https://bit.ly/3OWVAHJ"
-target="_blank">instagram.com/in/hoverfalt</a></p>
-<p><a href="https://bit.ly/3aQqZsb" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Contact_icon-GitHub.png?alt=media" /></a>
-<a href="https://bit.ly/3aQqZsb"
-target="_blank">github.com/hoverfalt/Threddit</a></p>
+<p>If you like what you have seen, or really don’t for that matter, please let me know! Send me a note and I’ll get back to you asap 👋</p>
+<p><a href="https://bit.ly/3tEkCkx" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Contact_icon-LinkedIn.png?alt=media" /></a> <a href="https://bit.ly/3tEkCkx" target="_blank">linkedin.com/in/hoverfalt</a></p>
+<p><a href="https://bit.ly/3OWVAHJ" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Contact_icon-Instagram.png?alt=media" /></a> <a href="https://bit.ly/3OWVAHJ" target="_blank">instagram.com/in/hoverfalt</a></p>
+<p><a href="https://bit.ly/3aQqZsb" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Contact_icon-GitHub.png?alt=media" /></a> <a href="https://bit.ly/3aQqZsb" target="_blank">github.com/hoverfalt/Threddit</a></p>
 <center>
-<a href="http://bit.ly/3tEkCkx" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Olof_Hoverfalt.jpg?alt=media" /></a>
+<a href="http://bit.ly/3tEkCkx" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Olof_Hoverfalt.jpg?alt=media" /></a>
 </center>
 </div>
 
 <div class='containerBox'>
-<div class='containerIcon'><a rel="license" target=”_blank”, href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" id="fixed-width-CC" /></a></div><div class="containerText">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. CC BY, Olof Hoverfält 2023</div>
+<div class='containerIcon'><a rel="license" target=”_blank”, href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" id="fixed-width-CC" /></a></div><div class="containerText">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. CC BY, Olof Hoverfält 2018 - 2024</div>
 </div>
 
 

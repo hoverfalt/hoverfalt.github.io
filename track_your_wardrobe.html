@@ -13,8 +13,8 @@
 
 <title>Track your own wardrobe</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -83,7 +83,6 @@ if (window.hljs) {
 
 
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 
@@ -108,9 +107,6 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
 }
 pre code {
   padding: 0;
@@ -168,15 +164,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -205,8 +197,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -214,9 +206,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -260,7 +259,7 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -295,25 +294,13 @@ $(document).ready(function () {
 </div>
 
 
-<p>If you are interested in exploring your own use of clothes, please
-join the project and <a href="https://bit.ly/3rSnUlE"
-target="_blank">sign up for your own wardrobe diary</a>. By tracking
-even a part of your wardrobe, you gain insights into your real use of
-clothes, item cost performance, your favorites, and the items you should
-probably consider putting forward. In a bigger picture, you will also
-contribute to the project of building a broader understanding of how we
-actually use the clothes we have, and hopefully provide insights and
-opportunities for betterment. This is my passion and I would love to
-have you join the project! Feel free to reach out if you have any
-questions about the project or your participation. The easiest way is to
-start with the sign-up form.</p>
+<p>If you are interested in exploring your own use of clothes, please join the project and <a href="https://bit.ly/3rSnUlE" target="_blank">sign up for your own wardrobe diary</a>. By tracking even a part of your wardrobe, you gain insights into your real use of clothes, item cost performance, your favorites, and the items you should probably consider putting forward. In a bigger picture, you will also contribute to the project of building a broader understanding of how we actually use the clothes we have, and hopefully provide insights and opportunities for betterment. This is my passion and I would love to have you join the project! Feel free to reach out if you have any questions about the project or your participation. The easiest way is to start with the sign-up form.</p>
 <center>
-<a href="https://bit.ly/3rSnUlE" target="_blank"><img
-src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Track_your_own_wardrobe_mobile.jpg?alt=media" /></a>
+<a href="https://bit.ly/3rSnUlE" target="_blank"><img src="https://firebasestorage.googleapis.com/v0/b/threddit-297417.appspot.com/o/Track_your_own_wardrobe_mobile.jpg?alt=media" /></a>
 </center>
 
 <div class='containerBox'>
-<div class='containerIcon'><a rel="license" target=”_blank”, href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" id="fixed-width-CC" /></a></div><div class="containerText">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. CC BY, Olof Hoverfält 2023</div>
+<div class='containerIcon'><a rel="license" target=”_blank”, href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" id="fixed-width-CC" /></a></div><div class="containerText">This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. CC BY, Olof Hoverfält 2018 - 2024</div>
 </div>
 
 
